@@ -1,0 +1,6 @@
+.sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 30px;
+}

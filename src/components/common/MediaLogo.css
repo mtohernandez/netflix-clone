@@ -1,0 +1,8 @@
+.mediaLogo__container{
+  display: flex;
+  align-items: center;
+}
+
+.mediaLogo__container img{
+  width: 300px;
+}

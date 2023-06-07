@@ -1,13 +1,12 @@
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Rebond Grotesque', sans-serif;
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 li {
@@ -19,6 +18,9 @@ a {
   cursor: pointer;
 }
 
+.link {
+  cursor: pointer;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

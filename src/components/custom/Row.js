@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "./axios";
+import axios from "../../API/axios";
 import "./Row.css";
 
 const Row = ({ title, fetchUrl, isLargeRow = false }) => {
@@ -9,7 +9,6 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
       setMovies(request.data.results);
-      console.log(request.data.results[0]);
       return request;
     }
 
