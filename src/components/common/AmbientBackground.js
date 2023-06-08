@@ -10,8 +10,8 @@ const AmbientBackground = (props) => {
           ref={props.videoRef}
           src={props.videoUrl}
           poster={props.posterUrl}
-          autoPlay
           onEnded={props.handleVideoEnded}
+          autoPlay={props.autoPlay}
         ></video>
         {/* <div className="video__overlay" /> */}
       </div>

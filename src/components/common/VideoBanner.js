@@ -1,15 +1,15 @@
 import React from "react";
 import "./VideoBanner.css";
 
-const VideoBanner = ({ videoUrl, posterUrl, videoRef, handleVideoEnded }) => {
+const VideoBanner = (props) => {
   return (
     <video
-      ref={videoRef}
+      ref={props.videoRef}
       className="video__player"
-      src={videoUrl}
-      poster={posterUrl}
-      autoPlay
-      onEnded={handleVideoEnded}
+      src={props.videoUrl}
+      poster={props.posterUrl}
+      onEnded={props.handleVideoEnded}
+      autoPlay={props.autoPlay}
     ></video>
   );
 };

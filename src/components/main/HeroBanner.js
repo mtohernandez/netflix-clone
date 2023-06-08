@@ -22,19 +22,25 @@ const HeroBanner = (props) => {
   const { movieId, movieDesc } = props;
 
   const videoRef = useRef(null);
-  const ambientRef = useRef(null);
+  const ambientVideoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const [images, setImages] = useState({});
   const [video, setVideo] = useState("");
 
+  // Handle videos loaded and ended show the poster and then to be played again after 10 seconds
 
-  const handleVideoEnded = () => {
+  const handleOnVideoEnded = () => {
+    setIsPlaying(false);
     videoRef.current.load();
-  };
-
-  const handleAmbientEnded = () => {
-    ambientRef.current.load();
-  };
+    ambientVideoRef.current.load();
+    
+    setTimeout(() => {
+      setIsPlaying(true);
+      videoRef.current.play();
+      ambientVideoRef.current.play();
+    }, 20000);
+  } 
 
   async function fetchImages() {
     const imageUrl = fetchImage(movieId);
@@ -85,7 +91,8 @@ const HeroBanner = (props) => {
             videoUrl={video}
             posterUrl={`${imageBaseUrl}${images.backdrops[1].file_path}`}
             videoRef={videoRef}
-            handleVideoEnded={handleVideoEnded}
+            handleVideoEnded={handleOnVideoEnded}
+            autoPlay={isPlaying}
           />
           <div className="header__description">
             <LogoSeries />
@@ -116,8 +123,9 @@ const HeroBanner = (props) => {
         <AmbientBackground
           videoUrl={video}
           posterUrl={`${imageBaseUrl}${images.backdrops[1].file_path}`}
-          videoRef={ambientRef}
-          handleVideoEnded={handleAmbientEnded}
+          videoRef={ambientVideoRef}
+          handleVideoEnded={handleOnVideoEnded}
+          autoPlay={isPlaying}
         />
       </div>
     )
