@@ -58,7 +58,7 @@ const HeroBanner = ({ movieId, movieDesc }) => {
   useEffect(() => {
     fetchImages();
     fetchVideoAPI().then((request) => {
-      request.data.results[0].key &&
+      if(request.data.results[0].key !== undefined)
         fetchVideos(request.data.results[0].key).catch((error) => {
           // Video not found
           setVideo("");
