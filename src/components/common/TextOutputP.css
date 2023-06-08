@@ -1,0 +1,11 @@
+.textOutput {
+  max-width: 400px;
+}
+
+
+@media (max-width: 768px) {
+  .textOutput{
+    max-width: 200px;
+    font-size: 12px;
+  }
+}

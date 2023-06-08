@@ -1,0 +1,19 @@
+.customButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.customButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.customButton--info {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
