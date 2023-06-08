@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { InformationIcon, PlayIcon, RepeatIcon } from "../../icons";
 import {
   AmbientBackground,
@@ -18,6 +18,11 @@ import "./HeroBanner.css";
 const HeroBanner = ({ movieId, movieDesc }) => {
   const [images, setImages] = useState({});
   const [video, setVideo] = useState("");
+  const videoRef = useRef(null);
+
+  const handleVideoEnded = () => {
+    videoRef.current.load();
+  };
 
   async function fetchImages() {
     const imageUrl = fetchImage(movieId);
@@ -66,6 +71,8 @@ const HeroBanner = ({ movieId, movieDesc }) => {
           <VideoBanner
             videoUrl={video}
             posterUrl={`${imageBaseUrl}${images.backdrops[1].file_path}`}
+            videoRef={videoRef}
+            handleVideoEnded={handleVideoEnded}
           />
           <div className="header__description">
             <LogoSeries />
@@ -93,6 +100,8 @@ const HeroBanner = ({ movieId, movieDesc }) => {
         <AmbientBackground
           videoUrl={video}
           posterUrl={`${imageBaseUrl}${images.backdrops[1].file_path}`}
+          videoRef={videoRef}
+          handleVideoEnded={handleVideoEnded}
         />
       </div>
     )

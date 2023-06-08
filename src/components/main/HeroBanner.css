@@ -77,3 +77,14 @@
   cursor: pointer;
   opacity: 0.8;
 }
+
+
+/* media queries for mobile devices */
+
+@media (max-width: 768px) {
+  .header__description > p {
+    max-width: 200px;
+    font-size: 12px;
+  }
+}
+

@@ -1,7 +1,10 @@
 import React from "react";
 import "./AmbientBackground.css";
 
-const AmbientBackground = ({ videoUrl, posterUrl }) => {
+const AmbientBackground = ({ videoUrl, posterUrl, videoRef, handleVideoEnded }) => {
+  
+  
+  
   return (
     <div className="video__container">
       <div className="video__element">
