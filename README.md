@@ -1,46 +1,11 @@
-# Getting Started with Create React App and Redux
+![portrait](https://github.com/mtohernandez/netflix-clone/assets/67434849/a56248a7-4a55-4e02-ac1f-46b27255d254)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Netflix Clone
 
-## Available Scripts
+Deployment: https://netflix-clone-app-b1ae9.web.app/
 
-In the project directory, you can run:
+This is a netflix clone where you can test user authentication and redux state management in action, use of react-router-dom and creative css styles simulating Youtube's ambient mode. As I always design first, here's a mock up of the app.
 
-### `npm start`
+![Netflix Redesign](https://github.com/mtohernandez/netflix-clone/assets/67434849/0b92d1cd-1445-401b-afd6-49c1c73a7df6)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Some issues you may find is when the page reloads, the error of no movie is handled but some responses from the API return "undefined" or "null" causing the app to break, in case this happens just reload the app one or two times and it should be back to normal.
