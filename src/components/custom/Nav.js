@@ -23,15 +23,15 @@ const Nav = () => {
     <nav className={`nav ${show && "nav__black"}`}>
       <div className="nav__container">
         <div className="nav__left">
-          <div className="link" onClick={() => navigate("/")}>
+          <button className="nav__link--asset" onClick={() => navigate("/")}>
             <NetflixIcon />
-          </div>
+          </button>
           <div className="nav__left--content">
             <span className="nav__link nav__link--collapsed hidden">
               Browse
             </span>
             <div className="nav__links">
-              <span className="nav__link nav__link--active">Home</span>
+              <span className="nav__link">Home</span>
               <span className="nav__link">TV Shows</span>
               <span className="nav__link">Movies</span>
               <span className="nav__link">New & Popular</span>
@@ -43,13 +43,13 @@ const Nav = () => {
         <div className="nav__right">
           <SearchIcon />
           <BellIcon />
-          <div className="link" onClick={() => navigate("/profile")}>
+          <button className="nav__link--asset" onClick={() => navigate("/profile")}>
             <img
               className="nav__avatar"
               src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png"
               alt="Netflix avatar"
             />
-          </div>
+          </button>
           <div className="nav__profileOptions">
             <ArrowDownIcon />
           </div>

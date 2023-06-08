@@ -44,6 +44,16 @@
   vertical-align: middle;
 }
 
+.nav__link--asset{
+  border: none;
+  background-color: transparent;
+}
+
+.nav__link--asset:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .nav__link:hover {
   cursor: pointer;
   opacity: 0.8;

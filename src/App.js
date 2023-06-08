@@ -40,6 +40,7 @@ function App() {
       }
     });
 
+    // Cleanup function to unsubscribe from the listener
     return unsubscribe;
   }, []);
 

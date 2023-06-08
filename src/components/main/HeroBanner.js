@@ -14,12 +14,19 @@ import {
   imageBaseUrl,
 } from "../../API/requests";
 import "./HeroBanner.css";
+import CustomButton from "../common/CustomButton";
+import TextOutputP from "../common/TextOutputP";
 
-const HeroBanner = ({ movieId, movieDesc }) => {
-  const [images, setImages] = useState({});
-  const [video, setVideo] = useState("");
+const HeroBanner = (props) => {
+
+  const { movieId, movieDesc } = props;
+
   const videoRef = useRef(null);
   const ambientRef = useRef(null);
+
+  const [images, setImages] = useState({});
+  const [video, setVideo] = useState("");
+
 
   const handleVideoEnded = () => {
     videoRef.current.load();
@@ -58,11 +65,12 @@ const HeroBanner = ({ movieId, movieDesc }) => {
   useEffect(() => {
     fetchImages();
     fetchVideoAPI().then((request) => {
-      if(request.data.results[0].key !== undefined)
         fetchVideos(request.data.results[0].key).catch((error) => {
-          // Video not found
           setVideo("");
         });
+    }).catch((error) => {
+      // Video not found
+      setVideo("");
     });
   }, [movieId]);
 
@@ -84,20 +92,23 @@ const HeroBanner = ({ movieId, movieDesc }) => {
             <MediaLogo
               imageSrc={`${imageBaseUrl}${images.logos[0].file_path}`}
             />
-            <p>{truncate(movieDesc, 150)}</p>
+            <TextOutputP
+              text={truncate(movieDesc, 150)}
+            />
             <div className="header__buttons">
-              <button className="header__button">
-                <PlayIcon />
-                Play
-              </button>
-              <button className="header__button header__button--info">
-                <InformationIcon />
-                More Info
-              </button>
+              <CustomButton
+                element={<PlayIcon />}
+                text="Play"
+              />
+              <CustomButton
+                element={<InformationIcon />}
+                text="More Info"
+                isTransparent
+              />
             </div>
           </div>
           <div className="header__mediaButtons">
-            <button>
+            <button className="header__mediaButtons--button">
               <RepeatIcon />
             </button>
           </div>
