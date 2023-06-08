@@ -19,9 +19,14 @@ const HeroBanner = ({ movieId, movieDesc }) => {
   const [images, setImages] = useState({});
   const [video, setVideo] = useState("");
   const videoRef = useRef(null);
+  const ambientRef = useRef(null);
 
   const handleVideoEnded = () => {
     videoRef.current.load();
+  };
+
+  const handleAmbientEnded = () => {
+    ambientRef.current.load();
   };
 
   async function fetchImages() {
@@ -100,8 +105,8 @@ const HeroBanner = ({ movieId, movieDesc }) => {
         <AmbientBackground
           videoUrl={video}
           posterUrl={`${imageBaseUrl}${images.backdrops[1].file_path}`}
-          videoRef={videoRef}
-          handleVideoEnded={handleVideoEnded}
+          videoRef={ambientRef}
+          handleVideoEnded={handleAmbientEnded}
         />
       </div>
     )
