@@ -43,6 +43,7 @@
   background-color: gray;
   padding: 0.5rem;
   font-size: 15px;
+  border-radius: 5px;
 }
 
 .profileScreen__signOut {
@@ -67,6 +68,12 @@
   font-weight: 400;
   border-bottom: 1px solid gray;
   padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profileScreen__plans > button {
+  margin-top: 1rem;
+  border-radius: 5px;
 }
 
 

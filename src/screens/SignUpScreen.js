@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { auth } from "../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -9,6 +9,8 @@ import "./SignUpScreen.css";
 const SingUpScreen = () => {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  const [signInError, setSignInError] = useState("");
 
   const register = (e) => {
     e.preventDefault();
@@ -21,8 +23,12 @@ const SingUpScreen = () => {
         console.log(authUser);
       })
       .catch((error) => {
-        alert(error.message);
+        setSignInError(error.message);
       });
+  };
+
+  const inputHandler = (e) => {
+    if (e.target.value > 0) setSignInError("");
   };
 
   const signIn = (e) => {
@@ -35,19 +41,31 @@ const SingUpScreen = () => {
       .then((userCredentials) => {
         console.log(userCredentials);
       })
-      .catch((error) => alert(error.status));
+      .catch((error) => {
+        setSignInError(error.message);
+      });
   };
 
   return (
     <div className="signupScreen">
       <form>
         <h1>Sign In</h1>
-        <input ref={emailRef} type="email" placeholder="Email" />
-        <input ref={passwordRef} type="password" placeholder="Password" />
+        <input
+          ref={emailRef}
+          type="email"
+          placeholder="Email"
+          onChange={inputHandler}
+        />
+        <input
+          ref={passwordRef}
+          type="password"
+          placeholder="Password"
+          onChange={inputHandler}
+        />
+        <h3 className={`signupScreen__error`}>{signInError}</h3>
         <button type="submit" onClick={signIn}>
           Sign In
         </button>
-
         <h4>
           <span className="signupScreen__gray">New to Netflix? </span>
           <span className="signupScreen__link" onClick={register}>
