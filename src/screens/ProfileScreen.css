@@ -76,4 +76,10 @@
   border-radius: 5px;
 }
 
+@media screen and (max-width: 1024px) {
+  .profileScreen__body {
+    padding-top: 20%;
+    width: 80%;
+  }
+}
 
