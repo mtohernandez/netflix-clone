@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { auth } from "../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -6,7 +6,10 @@ import {
 } from "firebase/auth";
 import "./SignUpScreen.css";
 
-const SingUpScreen = () => {
+const SingUpScreen = (props) => {
+
+  const { email } = props;
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -45,6 +48,12 @@ const SingUpScreen = () => {
         setSignInError(error.message);
       });
   };
+
+  useEffect(() => {
+    if (email) {
+      emailRef.current.value = props.email;
+    }
+  }, [email]);
 
   return (
     <div className="signupScreen">

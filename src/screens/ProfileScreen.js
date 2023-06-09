@@ -23,12 +23,8 @@ const ProfileScreen = () => {
             <h2>{user.email}</h2>
             <div className="profileScreen__plans">
               <h3>Plans</h3>
-              <TextOutputP
-                text="Renewal date: 04/03/2021"
-                />
-              <TextOutputP
-                text="Plan: Premium"
-                />
+              <TextOutputP text="Renewal date: 04/03/2021" />
+              <TextOutputP text="Plan: Premium" />
               <button
                 onClick={() => auth.signOut()}
                 className="profileScreen__signOut"

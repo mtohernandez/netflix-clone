@@ -5,6 +5,11 @@ import "./LoginScreen.css";
 
 const LoginScreen = () => {
   const [signIn, setSignIn] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const emailHandler = (e) => {
+    setEmail(e.target.value);
+  };
 
   return (
     <div className="loginScreen">
@@ -17,7 +22,7 @@ const LoginScreen = () => {
       </div>
       <div className="loginScreen__body">
         {signIn ? (
-          <SignUpScreen />
+          <SignUpScreen email={email}/>
         ) : (
           <>
             <h1>Unlimited movies, TV shows, and more.</h1>
@@ -29,7 +34,7 @@ const LoginScreen = () => {
 
             <div className="loginScreen__input">
               <form>
-                <input type="email" placeholder="Email Address" />
+                <input type="email" placeholder="Email Address" onChange={emailHandler}/>
                 <button onClick={() => setSignIn(true)} className="loginScreen__getStarted">Get Started</button>
               </form>
             </div>
