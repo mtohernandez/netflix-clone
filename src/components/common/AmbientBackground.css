@@ -17,7 +17,6 @@
   object-fit: cover;
   align-self: center;
   filter: blur(100px);
-  width: 130%;
   aspect-ratio: 16 / 9;
   opacity: 0.6;
   z-index: 10;
