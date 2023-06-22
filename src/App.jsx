@@ -1,11 +1,10 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { Nav, Footer } from "./components";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { login, logout, selectUser } from "./features/userSlice";
+import { login, logout } from "./features/userSlice";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
