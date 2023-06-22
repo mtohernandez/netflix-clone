@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import App from "./App";
+import { Home, Login, Profile } from "./screens";
 
 const router = createBrowserRouter([
   {
@@ -6,7 +8,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/Home",
+        path: "/home",
         element: <Home />,
       },
       {
