@@ -24,10 +24,14 @@ export const moviesSlice = createSlice({
     setMovies: (state, action) => {
       state.movies = action.payload;
     },
+    setErrorMovies: (state, action) => {
+      state.error = action.payload;
+    }
   },
   extraReducers(builder) {
     builder
       .addCase(fetchMovies.fulfilled, (state, action) => {
+        state.status = "succeeded";
         state.movies = action.payload;
       })
       .addCase(fetchMovies.pending, (state, action) => {
@@ -40,7 +44,7 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { setMovies } = moviesSlice.actions;
+export const { setMovies, setErrorMovies } = moviesSlice.actions;
 
 export const selectMovies = (state) => state.movies;
 export const selectMoviesStatus = (state) => state.movies.status;

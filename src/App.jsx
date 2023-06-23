@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { Nav, Footer } from "./components";
 import { useEffect } from "react";
-import { login, logout } from "./features/userSlice";
+import { login, logout, selectUser } from "./features/userSlice";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
 
   // The user needs to be logged in to access the app
   useEffect(() => {
@@ -22,7 +23,7 @@ function App() {
         );
       } else {
         dispatch(logout());
-        navigate("/login");
+        navigate("/welcome/login");
       }
     });
 
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <>
-      <Nav />
+      <Nav user={user}/>
       <Outlet />
       <Footer />
     </>
