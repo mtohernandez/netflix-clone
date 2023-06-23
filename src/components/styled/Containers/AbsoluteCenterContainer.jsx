@@ -9,7 +9,6 @@ const AbsoluteCenterContainer = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-  text-align: center;
 
   display: flex;
   flex-direction: column;

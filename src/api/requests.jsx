@@ -40,7 +40,7 @@ const requests = {
 };
 
 const fetchImage = (movieId) => {
-  return `/tv/${movieId}/images?api_key=${VITE_API_KEY}&language=en-US&include_image_language=en,null`;
+  return `/movie/${movieId}/images?api_key=${VITE_API_KEY}&language=en-US&include_image_language=en,null`;
 };
 
 const fetchVideo = (videoId) => {
@@ -48,7 +48,7 @@ const fetchVideo = (videoId) => {
 };
 
 const fetchVideoId = (movieId) => {
-  return `/tv/${movieId}/videos?api_key=${VITE_API_KEY}&language=en-US`;
+  return `/movie/${movieId}/videos?api_key=${VITE_API_KEY}&language=en-US`;
 };
 
 export { fetchImage, imageBaseUrl, fetchVideo, fetchVideoId };

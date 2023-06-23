@@ -14,26 +14,26 @@ import {
 
 import "./main.css";
 
-// const dispatchFeaturedMovie = async (results, index) => {
-//   try {
-//     const movie = results.payload[index];
-//     store.dispatch(setMovie(movie));
-//     await store.dispatch(fetchMovieImage(movie.id));
-//     const response = await store.dispatch(fetchMovieVideoId(movie.id));
-//     await store.dispatch(fetchMovieVideo(response.payload));
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
+const dispatchFeaturedMovie = async (results, index) => {
+  try {
+    const movie = results.payload[index];
+    store.dispatch(setMovie(movie));
+    await store.dispatch(fetchMovieImage(movie.id));
+    const response = await store.dispatch(fetchMovieVideoId(movie.id));
+    await store.dispatch(fetchMovieVideo(response.payload));
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
-// store.dispatch(fetchMovies()).then((results) => {
-//   dispatchFeaturedMovie(
-//     results,
-//     Math.floor(Math.random() * results.payload.length - 1)
-//   ).catch((error) => {
-//     store.dispatch(setErrorMovies(error.message));
-//   });
-// });
+store.dispatch(fetchMovies()).then((results) => {
+  dispatchFeaturedMovie(
+    results,
+    Math.floor(Math.random() * results.payload.length - 1)
+  ).catch((error) => {
+    store.dispatch(setErrorMovies(error.message));
+  });
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

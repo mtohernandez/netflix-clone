@@ -8,6 +8,11 @@ const ButtonForm = styled.button`
   border-radius: 5px;
   background-color: #DB202C;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
   width: ${props => props.$fullWidth ? "100%" : "auto"};
 
   &:hover{

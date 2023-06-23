@@ -4,7 +4,8 @@ const BannerDescription = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
   display: flex;
   flex-direction: column;
   gap: 20px;

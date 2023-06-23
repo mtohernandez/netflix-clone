@@ -22,6 +22,7 @@ function App() {
             email: user.email,
           })
         );
+        navigate("/home");
       } else {
         dispatch(logout());
         navigate("/welcome/login");

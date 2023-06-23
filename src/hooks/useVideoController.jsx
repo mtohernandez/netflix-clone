@@ -19,17 +19,7 @@ const useVideoController = () => {
     }, 20000);
   };
 
-  useEffect(() => {
-    const playingTime = setTimeout(() => {
-      setIsPlaying(true);
-    }, 10000);
-
-    return () => {
-      clearTimeout(playingTime);
-    };
-  }, []);
-
-  return [videoRef, isPlaying, handleOnVideoEnded];
+  return [videoRef, isPlaying, setIsPlaying, handleOnVideoEnded];
 };
 
 export default useVideoController;

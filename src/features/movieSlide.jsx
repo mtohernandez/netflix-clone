@@ -7,7 +7,7 @@ export const fetchMovieImage = createAsyncThunk(
   "movies/fetchMovieImage",
   async (movieId) => {
     const response = await instance.get(fetchImage(movieId));
-    const data = await response.data.logos[0].file_path;
+    const data = await response.data;
     return data;
   }
 );

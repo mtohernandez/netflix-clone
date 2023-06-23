@@ -6,10 +6,10 @@ import InputForm from "../styled/Form/InputForm";
 import ButtonForm from "../styled/Form/ButtonForm";
 import LabelForm from "../styled/Form/LabelForm";
 import BlackTransparentContainer from "../styled/Containers/BlackTransparentContainer";
-import H1Text from "../styled/Text/H1Text";
-import PText from "../styled/Text/PText";
 import LinkText from "../styled/Text/LinkText";
 import StraightLineGray from "../styled/Stylish/StraightLineGray";
+import H1Text from "../styled/Text/H1Text";
+import ParagraphP from "../styled/Text/ParagraphP";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const LoginForm = () => {
   return (
     <BlackTransparentContainer>
       <form onSubmit={handleLogin}>
-        <H1Text>Start The Journey</H1Text>
+        <H1Text>Sign In</H1Text>
         <StraightLineGray />
         <LabelForm htmlFor="email">Email</LabelForm>
         <InputForm
@@ -64,9 +64,9 @@ const LoginForm = () => {
           ref={passwordRef}
           placeholder="password"
         />
-        <PText>
+        <ParagraphP >
           Not having an account? <LinkText>Sign Up</LinkText>
-        </PText>
+        </ParagraphP>
         <ButtonForm type="submit" $fullWidth>
           Sign In
         </ButtonForm>
