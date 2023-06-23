@@ -11,33 +11,11 @@ import H3Text from "../components/styled/Text/H3Text";
 
 import arrival from "../assets/arrival.mp4";
 import arrivalPhoto from "../assets/arrivalPoster.jpg";
+import useVideoController from "../hooks/useVideoController";
 
 const Welcome = () => {
   const outletHook = useOutlet();
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handleOnVideoEnded = () => {
-    setIsPlaying(false);
-    videoRef.current.load();
-
-    setTimeout(() => {
-      setIsPlaying(true);
-      videoRef.current.play();
-      ambientVideoRef.current.play();
-    }, 20000);
-  };
-
-  useEffect(() => {
-    const playingTime = setTimeout(() => {
-      setIsPlaying(true);
-    }, 10000);
-
-    return () => {
-      clearTimeout(playingTime);
-    };
-  }, []); 
-
+  const [videoRef, isPlaying, handleVideoEnded] = useVideoController();
 
   return (
     <BackGroundContainer>
@@ -46,7 +24,7 @@ const Welcome = () => {
         ref={videoRef}
         src={arrival}
         autoPlay={isPlaying}
-        onEnded={handleOnVideoEnded}
+        onEnded={handleVideoEnded}
         poster={arrivalPhoto}
         muted
       />

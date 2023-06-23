@@ -5,6 +5,7 @@ import { login, logout, selectUser } from "./features/userSlice";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
+import RelativeContainer from "./components/styled/Containers/RelativeContainer";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,11 +33,11 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Nav user={user}/>
+    <div style={{minHeight: "100vh"}}>
+      <Nav user={user} />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 

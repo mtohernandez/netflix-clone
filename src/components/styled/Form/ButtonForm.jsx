@@ -8,7 +8,7 @@ const ButtonForm = styled.button`
   border-radius: 5px;
   background-color: #DB202C;
 
-  width: ${props => props.fullWidth ? "100%" : "auto"};
+  width: ${props => props.$fullWidth ? "100%" : "auto"};
 
   &:hover{
     cursor: pointer;
