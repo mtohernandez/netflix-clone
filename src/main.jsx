@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router";
-import { fetchMovies, setErrorMovies } from "./features/moviesSlide";
+import { fetchMovies, fetchMoviesAction, setErrorMovies } from "./features/moviesSlide";
 import {
   fetchMovieImage,
   fetchMovieVideoId,
@@ -33,6 +33,10 @@ store.dispatch(fetchMovies()).then((results) => {
   ).catch((error) => {
     store.dispatch(setErrorMovies(error.message));
   });
+});
+
+store.dispatch(fetchMoviesAction()).catch((error) => {
+  store.dispatch(setErrorMovies(error.message));
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(

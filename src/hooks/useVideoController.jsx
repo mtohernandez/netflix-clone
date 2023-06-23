@@ -15,7 +15,6 @@ const useVideoController = () => {
     setTimeout(() => {
       setIsPlaying(true);
       videoRef.current.play();
-      ambientVideoRef.current.play();
     }, 20000);
   };
 

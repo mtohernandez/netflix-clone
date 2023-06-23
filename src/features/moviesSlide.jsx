@@ -4,15 +4,26 @@ import requests from "../api/requests";
 
 // Fetch all the movies trending now
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-	const response = await instance.get(requests.fetchTrending.link);
+  const response = await instance.get(requests.fetchTrending.link);
   const data = response.data.results;
   return data;
 });
 
+export const fetchMoviesAction = createAsyncThunk(
+  "movies/fetchMoviesAction",
+  async () => {
+    const response = await instance.get(requests.fetchActionMovies.link);
+    const data = response.data.results;
+    return data;
+  }
+);
 
 //? Initial Movies State (APP WIDE)
 const initialState = {
-  movies: null,
+  movies: {
+    all: null,
+    action: null,
+  },
   status: "idle",
   error: null,
 };
@@ -26,13 +37,16 @@ export const moviesSlice = createSlice({
     },
     setErrorMovies: (state, action) => {
       state.error = action.payload;
-    }
+    },
   },
   extraReducers(builder) {
     builder
       .addCase(fetchMovies.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.movies = action.payload;
+        state.movies.all = action.payload;
+      }).addCase(fetchMoviesAction.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.movies.action = action.payload;
       })
       .addCase(fetchMovies.pending, (state, action) => {
         state.status = "loading";

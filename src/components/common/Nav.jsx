@@ -17,7 +17,7 @@ const Nav = (props) => {
   const [fixed, setFixed] = useState(false);
 
   const transitionNavBar = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 0) {
       setFixed(true);
     } else setFixed(false);
   };
