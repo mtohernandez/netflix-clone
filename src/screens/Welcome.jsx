@@ -8,10 +8,9 @@ import VideoBackground from "../components/styled/Stylish/VideoBackground";
 import AbsoluteCenterContainer from "../components/styled/Containers/AbsoluteCenterContainer";
 import H1Text from "../components/styled/Text/H1Text";
 import H3Text from "../components/styled/Text/H3Text";
-
-import arrival from "../assets/arrival.mp4";
-import arrivalPhoto from "../assets/arrivalPoster.jpg";
 import useVideoController from "../hooks/useVideoController";
+
+import avatarPoster from "../assets/avatarPoster.jpg";
 
 const Welcome = () => {
   const outletHook = useOutlet();
@@ -22,10 +21,10 @@ const Welcome = () => {
       <GradientTop />
       <VideoBackground
         ref={videoRef}
-        src={arrival}
+        // src={arrival}
         autoPlay={isPlaying}
         onEnded={handleVideoEnded}
-        poster={arrivalPhoto}
+        poster={avatarPoster}
         muted
       />
       <Nav />

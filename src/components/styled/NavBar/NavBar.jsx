@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 
 const NavBar = styled.nav`
-  position: ${props => props.$fixed ? "fixed" : "relative"};
-  background-color: ${props => props.$fixed ? "#000" : "transparent"};
+  position: fixed;
+  background-color: ${props => props.$blacked ? "#000" : "transparent"};
   display: flex;
   align-items: center;
   justify-content: space-between;

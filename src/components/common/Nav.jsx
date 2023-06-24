@@ -14,12 +14,12 @@ import { ArrowDownIcon, NetflixIcon } from "../../icons";
 const Nav = (props) => {
   const { user } = props;
 
-  const [fixed, setFixed] = useState(false);
+  const [blacked, setBlacked] = useState(false);
 
   const transitionNavBar = () => {
     if (window.scrollY > 0) {
-      setFixed(true);
-    } else setFixed(false);
+      setBlacked(true);
+    } else setBlacked(false);
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Nav = (props) => {
   }, []);
 
   return (
-    <NavBar $fixed={fixed}>
+    <NavBar $blacked={blacked}>
       <NavLinks>
         <NavLogo>
           <Link to={user ? "/home" : "/welcome"}>

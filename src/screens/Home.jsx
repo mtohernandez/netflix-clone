@@ -9,6 +9,9 @@ import useVideoController from "../hooks/useVideoController";
 import { imageBaseUrl } from "../api/requests";
 import { useEffect } from "react";
 import Row from "../components/custom/Row";
+import AbsoluteCenterContainer from "../components/styled/Containers/AbsoluteCenterContainer";
+import H1Text from "../components/styled/Text/H1Text";
+import LoadingBall from "../components/styled/Stylish/LoadingBall";
 
 const Home = () => {
   const movie = useSelector(selectMovie);
@@ -49,7 +52,11 @@ const Home = () => {
   return (
     <>
       {loading ? (
-        <h2>Loading...</h2>
+        <RelativeContainer>
+          <AbsoluteCenterContainer>
+            <LoadingBall />
+          </AbsoluteCenterContainer>
+        </RelativeContainer>
       ) : (
         <RelativeContainer $height="400px">
           <BannerAmbient {...videoControl} movie={movie} />

@@ -1,12 +1,10 @@
 import { styled } from "styled-components";
 
 const AvatarGeneral = styled.img`
-  width: 40px;
-  height: 40px;
   border-radius: 10px;
-  object-fit: cover;
+  object-fit: cover;  
+  width: ${props => props.$huge ? "100px" : "40px"}};
   background: url(${props => props.src}) no-repeat center center;
-  
   &:hover {
     cursor: pointer;
     opacity: .8;
