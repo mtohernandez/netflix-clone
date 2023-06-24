@@ -15,10 +15,6 @@ const ButtonForm = styled.button`
 
   width: ${props => props.$fullWidth ? "100%" : "auto"};
 
-  &:hover{
-    cursor: pointer;
-    opacity: .8;
-  }
 `;
 
 export default ButtonForm;

@@ -5,10 +5,6 @@ const AvatarGeneral = styled.img`
   object-fit: cover;  
   width: ${props => props.$huge ? "100px" : "40px"}};
   background: url(${props => props.src}) no-repeat center center;
-  &:hover {
-    cursor: pointer;
-    opacity: .8;
-  }
 `;
 
 export default AvatarGeneral;
