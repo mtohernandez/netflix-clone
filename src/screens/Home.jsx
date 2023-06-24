@@ -32,7 +32,6 @@ const Home = () => {
   }, [movie]);
 
   useEffect(() => {
-    console.log(movies);
     if (movie.movieVideo && movie.movieImage && movie.movie && movies) {
       setVideoControl({
         videoRef: videoRef,
