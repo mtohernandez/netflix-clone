@@ -7,6 +7,7 @@ Small Bugs to notice:
 - Both Ambient and Video (Background & Banner) do not sync due to load times.
 - Expect a delay of at least 20 seconds till the videos start playing, it could be more, but it works.
 - Styles missing? Seems .jsx has a weird behavior with styled-components.
+- Scroll bar on Chrome won't go away...
 
 ## Project Focus
 - Authentication
