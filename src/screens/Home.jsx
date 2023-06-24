@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Banner from "../components/custom/Banner";
 import { useSelector } from "react-redux";
 import { selectMovie } from "../features/movieSlide";
 import { selectMovies } from "../features/moviesSlide";
 import BannerAmbient from "../components/custom/BannerAmbient";
 import RelativeContainer from "../components/styled/Containers/RelativeContainer";
-import useVideoController from "../hooks/useVideoController";
 import { imageBaseUrl } from "../api/requests";
-import { useEffect } from "react";
 import Row from "../components/custom/Row";
 import AbsoluteCenterContainer from "../components/styled/Containers/AbsoluteCenterContainer";
 import H1Text from "../components/styled/Text/H1Text";
@@ -16,32 +14,44 @@ import LoadingBall from "../components/styled/Stylish/LoadingBall";
 const Home = () => {
   const movie = useSelector(selectMovie);
   const movies = useSelector(selectMovies);
-  const [videoRef, isPlaying, setIsPlaying, handleVideoEnded] =
-    useVideoController();
+  const videoRef = useRef(null);
+  const ambientRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [videoControl, setVideoControl] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const handleOnVideoEnded = () => {
+    setIsPlaying(false);
+    videoRef.current.load();
+    ambientRef.current.load();
+
+    setTimeout(() => {
+      setIsPlaying(true);
+      videoRef.current.play();
+      ambientRef.current.play();
+    }, 20000);
+  };
 
   useEffect(() => {
     const timeOut = setTimeout(() => {
       setIsPlaying(true);
-    }, 5000);
+    }, 10000);
 
     return () => {
       clearTimeout(timeOut);
-    }
-  }, [movie]);
+    };
+  }, [movie.movieVideo]);
 
   useEffect(() => {
     if (movie.movieVideo && movie.movieImage && movie.movie && movies) {
       setVideoControl({
-        videoRef: videoRef,
         videoUrl: movie.movieVideo ? movie.movieVideo : null,
         posterUrl: `${imageBaseUrl}${
           movie.movieImage
             ? movie.movieImage.backdrops[0].file_path
             : movie.movie.backdrop_path
         }`,
-        handleVideoEnded: handleVideoEnded,
+        handleVideoEnded: handleOnVideoEnded,
         autoPlay: isPlaying,
       });
       setLoading(false);
@@ -58,10 +68,14 @@ const Home = () => {
         </RelativeContainer>
       ) : (
         <RelativeContainer $height="400px">
-          <BannerAmbient {...videoControl} movie={movie} />
-          <Banner {...videoControl} movie={movie} />
-          <Row title="Netflix's Clone Latest" movies={movies.movies.all}/>
-          <Row title="Action Movies!" movies={movies.movies.action}/>
+          <BannerAmbient
+            videoRef={ambientRef}
+            {...videoControl}
+            movie={movie}
+          />
+          <Banner videoRef={videoRef} {...videoControl} movie={movie} />
+          <Row title="Netflix's Clone Latest" movies={movies.movies.all} />
+          <Row title="Action Movies!" movies={movies.movies.action} />
         </RelativeContainer>
       )}
     </>

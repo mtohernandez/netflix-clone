@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+// import { useState, useRef, useEffect } from "react";
 import { Nav } from "../components";
 import { Outlet, useOutlet } from "react-router-dom";
 import BackGroundContainer from "../components/styled/Containers/BackGroundContainer";
@@ -8,22 +8,20 @@ import VideoBackground from "../components/styled/Stylish/VideoBackground";
 import AbsoluteCenterContainer from "../components/styled/Containers/AbsoluteCenterContainer";
 import H1Text from "../components/styled/Text/H1Text";
 import H3Text from "../components/styled/Text/H3Text";
-import useVideoController from "../hooks/useVideoController";
 
 import avatarPoster from "../assets/avatarPoster.jpg";
 
 const Welcome = () => {
   const outletHook = useOutlet();
-  const [videoRef, isPlaying, handleVideoEnded] = useVideoController();
 
   return (
     <BackGroundContainer>
       <GradientTop />
       <VideoBackground
-        ref={videoRef}
+        // ref={videoRef}
         // src={arrival}
-        autoPlay={isPlaying}
-        onEnded={handleVideoEnded}
+        // autoPlay={isPlaying}
+        // onEnded={handleVideoEnded}
         poster={avatarPoster}
         muted
       />

@@ -1,9 +1,7 @@
 import { styled } from "styled-components";
 
 const ImageLogo = styled.img`
-  width: 30%;
-  max-width: 800px;
-  height: auto;
+  max-width: 400px;
   object-fit: contain;
 
   @media (max-width: 1024px) {
