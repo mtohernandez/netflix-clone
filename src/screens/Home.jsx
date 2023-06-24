@@ -62,7 +62,7 @@ const Home = () => {
           <BannerAmbient {...videoControl} movie={movie} />
           <Banner {...videoControl} movie={movie} />
           <Row title="Netflix's Clone Latest" movies={movies.movies.all}/>
-          <Row title="Trending Action!" movies={movies.movies.action}/>
+          <Row title="Action Movies!" movies={movies.movies.action}/>
         </RelativeContainer>
       )}
     </>
