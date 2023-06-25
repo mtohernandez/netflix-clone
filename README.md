@@ -3,6 +3,7 @@
 Netflix home aesthetic built from the ground up, this project is based mainly in user authentication and state management. This is an awesome showcase of how with a simple UI change netflix can look much better.
 
 Small Bugs to notice: 
+- Reload the page if you see nothing after 5 seconds
 - The video Background does not loads sometimes.
 - Both Ambient and Video (Background & Banner) do not sync due to load times.
 - Expect a delay of at least 20 seconds till the videos start playing, it could be more, but it works.
