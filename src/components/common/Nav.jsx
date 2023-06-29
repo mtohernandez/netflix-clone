@@ -8,6 +8,7 @@ import NavButton from "../styled/NavBar/NavButton";
 import NavBarProfile from "../styled/NavBar/NavBarProfile";
 import AvatarGeneral from "../styled/General/AvatarGeneral";
 import ButtonForm from "../styled/Form/ButtonForm";
+import PropTypes from "prop-types";
 
 import { ArrowDownIcon, NetflixIcon } from "../../icons";
 
@@ -66,6 +67,10 @@ const Nav = (props) => {
       </NavBarProfile>
     </NavBar>
   );
+};
+
+Nav.propTypes = {
+  user: PropTypes.object,
 };
 
 export default Nav;

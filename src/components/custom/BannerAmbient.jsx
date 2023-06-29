@@ -3,6 +3,7 @@ import {
   AmbientElement,
   AmbientVideo,
 } from "../styled/Stylish/AmbientVideoBackground";
+import PropTypes from "prop-types";
 
 const BannerAmbient = (props) => {
   return (
@@ -19,6 +20,14 @@ const BannerAmbient = (props) => {
       </AmbientElement>
     </AmbientContainer>
   );
+};
+
+BannerAmbient.propTypes = {
+  videoRef: PropTypes.object.isRequired,
+  videoUrl: PropTypes.string.isRequired,
+  posterUrl: PropTypes.string.isRequired,
+  handleVideoEnded: PropTypes.func.isRequired,
+  autoPlay: PropTypes.bool.isRequired,
 };
 
 export default BannerAmbient;

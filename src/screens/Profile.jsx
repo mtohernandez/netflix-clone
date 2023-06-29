@@ -22,6 +22,7 @@ const Profile = () => {
       })
       .catch((error) => {
         // An error happened.
+        console.log(error);
       });
   };
 

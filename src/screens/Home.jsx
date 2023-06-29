@@ -8,7 +8,6 @@ import RelativeContainer from "../components/styled/Containers/RelativeContainer
 import { imageBaseUrl } from "../api/requests";
 import Row from "../components/custom/Row";
 import AbsoluteCenterContainer from "../components/styled/Containers/AbsoluteCenterContainer";
-import H1Text from "../components/styled/Text/H1Text";
 import LoadingBall from "../components/styled/Stylish/LoadingBall";
 
 const Home = () => {
@@ -56,7 +55,7 @@ const Home = () => {
       });
       setLoading(false);
     }
-  }, [movie, movies]);
+  }, [isPlaying, movie, movies]);
 
   return (
     <>

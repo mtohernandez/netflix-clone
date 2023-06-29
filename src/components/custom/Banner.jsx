@@ -1,4 +1,3 @@
-import React from "react";
 import BannerContainer from "../styled/Focused/BannerContainer";
 import BannerContent from "../styled/Focused/BannerContent";
 import BannerDescription from "../styled/Focused/BannerDescription";
@@ -6,7 +5,6 @@ import VideoBackground from "../styled/Stylish/VideoBackground";
 import SeparatedContainer from "../styled/Containers/SeparatedContainer";
 import {
   InformationIcon,
-  NetflixIcon,
   NetflixNIcon,
   PlayIcon,
 } from "../../icons";
@@ -17,7 +15,8 @@ import ImageLogo from "../styled/Stylish/ImageLogo";
 import truncate from "../../utils/truncate";
 import ButtonPlay from "../styled/Form/ButtonPlay";
 import ButtonLightInfo from "../styled/Form/ButtonLightInfo";
-import { imageBaseUrl } from "../../api/requests";
+import PropTypes from "prop-types";
+
 
 const Banner = (props) => {
   const { videoRef, videoUrl, posterUrl, handleVideoEnded, autoPlay, movie } =
@@ -64,6 +63,15 @@ const Banner = (props) => {
       </BannerContent>
     </BannerContainer>
   );
+};
+
+Banner.propTypes = {
+  videoRef: PropTypes.object.isRequired,
+  videoUrl: PropTypes.string.isRequired,
+  posterUrl: PropTypes.string.isRequired,
+  handleVideoEnded: PropTypes.func.isRequired,
+  autoPlay: PropTypes.bool.isRequired,
+  movie: PropTypes.object.isRequired,
 };
 
 export default Banner;
