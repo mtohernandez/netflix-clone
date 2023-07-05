@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../styled/NavBar/NavBar";
 import NavLinks from "../styled/NavBar/NavLinks";
@@ -11,22 +10,12 @@ import ButtonForm from "../styled/Form/ButtonForm";
 import PropTypes from "prop-types";
 
 import { ArrowDownIcon, NetflixIcon } from "../../icons";
+import { useBlacked } from "../../hooks/useBlacked";
 
 const Nav = (props) => {
   const { user } = props;
 
-  const [blacked, setBlacked] = useState(false);
-
-  const transitionNavBar = () => {
-    if (window.scrollY > 0) {
-      setBlacked(true);
-    } else setBlacked(false);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", transitionNavBar);
-    return () => window.removeEventListener("scroll", transitionNavBar);
-  }, []);
+  const blacked = useBlacked();
 
   return (
     <NavBar $blacked={blacked}>
