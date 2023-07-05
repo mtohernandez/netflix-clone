@@ -1,4 +1,5 @@
-This project is being transformed into something bigger. For now a preview of the netflix aesthetic can be seen.
+This project is the initial version the reel-app. Currently in the works.
+
 ![FinalProd](https://github.com/mtohernandez/netflix-clone/assets/67434849/d1dff348-40dc-4f68-baa9-7c67bee73f4b)
 # Netflix With Ambient Mode
 Netflix home aesthetic built from the ground up, this project is based mainly in user authentication and state management. This is an awesome showcase of how with a simple UI change netflix can look much better.
