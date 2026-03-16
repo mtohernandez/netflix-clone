@@ -1,37 +1,42 @@
-/* Global CSS Styles */
+@import "tailwindcss";
 
-body {
-  overflow-x: hidden;
-  background-color: black;
-  min-height: 100vh;
+@theme {
+  --color-netflix-red: #DB202C;
+  --color-netflix-red-hover: #b71c1c;
+  --color-netflix-black: #141414;
+  --color-netflix-dark: #181818;
+  --color-netflix-gray: #2F2F2F;
+  --color-netflix-light-gray: #808080;
+  --color-netflix-text: #e5e5e5;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'SF Pro Display', sans-serif;
-}
+@layer base {
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    @apply bg-netflix-black text-netflix-text overflow-x-hidden min-h-screen antialiased;
+  }
 
-li {
-  list-style: none;
-}
+  * {
+    @apply p-0 m-0 box-border;
+  }
 
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
+  li {
+    @apply list-none;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  color: white;
-}
+  a {
+    @apply no-underline cursor-pointer;
+  }
 
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white;
+  }
 
-button:hover {
-  opacity: 0.8;
-} 
+  button {
+    @apply cursor-pointer border-none outline-none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
