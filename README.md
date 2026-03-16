@@ -1,8 +1,6 @@
-# Netflix Clone — Ambient Mode
+# Netflix Clone
 
 A Netflix-inspired movie browsing application built with React that showcases a cinematic UI experience, complete with auto-playing trailers, an ambient blur effect, and real-time movie data from TMDB.
-
-![FinalProd](https://github.com/mtohernandez/netflix-clone/assets/67434849/d1dff348-40dc-4f68-baa9-7c67bee73f4b)
 
 ---
 
